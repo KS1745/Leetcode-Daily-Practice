@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        
+        //optimal approach
+        int n = nums.size();
+        int maxi = INT_MIN, sum = 0;
+        for(int i=0; i<n; i++){
+
+            sum = sum + nums[i];
+
+            if(sum > maxi){
+                maxi = sum;
+            }
+
+            if(sum < 0){
+                sum = 0;
+            }
+        }
+
+        return maxi;
+
+
+
+
+
+        //better approach
+        // int maxi = INT_MIN;
+        // int n = nums.size();
+        // for(int i=0; i<n; i++){
+        //     int sum = 0;
+        //     for(int j=i; j<n; j++){
+        //       sum = sum + nums[j];
+        //       maxi = max(maxi,sum);
+        //     }
+        
+        // }
+        // return maxi;
+    }
+};
