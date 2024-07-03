@@ -20,15 +20,32 @@ int getLength(ListNode* head){
     return len;
 }
     ListNode* middleNode(ListNode* head) {
-        int n = getLength(head);
-        int position = n/2 + 1;
         
-        ListNode* temp = head;
+        ListNode* slow = head;
+        ListNode* fast = head;
 
-        while(position != 1){
-            position--;
-            temp = temp->next;
+        while(fast != NULL){
+            fast = fast->next;
+            if(fast != NULL){
+                fast = fast->next;
+                slow = slow->next;
+            }
         }
-        return temp;
+        
+        return slow;
+        
+        
+        
+        
+        // int n = getLength(head);
+        // int position = n/2 + 1;
+        
+        // ListNode* temp = head;
+
+        // while(position != 1){
+        //     position--;
+        //     temp = temp->next;
+        // }
+        // return temp;
     }
 };
