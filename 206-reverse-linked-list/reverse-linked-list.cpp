@@ -10,17 +10,38 @@
  */
 class Solution {
 public:
+    ListNode* reverseUsingRecursion(ListNode* prev, ListNode* curr){
+        //base case
+        if(curr == NULL){
+            return prev;
+        }
+
+        //1 case we will solve
+        ListNode* nextNode = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = nextNode;
+
+        return reverseUsingRecursion(prev,curr);
+
+
+    }
     ListNode* reverseList(ListNode* head) {
         ListNode* prev = NULL;
         ListNode* curr = head;
 
-        while(curr != NULL){
-            ListNode* nextNode = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = nextNode;
-        }
-        head = prev;
-        return head;
+        return reverseUsingRecursion(prev,curr);
+        
+
+
+        //Iterative Approach
+        // while(curr != NULL){
+        //     ListNode* nextNode = curr->next;
+        //     curr->next = prev;
+        //     prev = curr;
+        //     curr = nextNode;
+        // }
+        // head = prev;
+        // return head;
     }
 };
