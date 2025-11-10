@@ -16,7 +16,8 @@ var reverse = function(x) {
 
     }
 
-    let limit = Math.pow(2,31);
+    // let limit = Math.pow(2,31);
+    let limit = 2**31;
     if(rev < -limit || rev > limit) return 0;
 
     return (xCopy < 0) ? -rev : rev;
