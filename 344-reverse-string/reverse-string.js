@@ -9,7 +9,7 @@ var reverseString = function(s) {
 
     for(let i=0; i<halfLen; i++) {
 
-
+        // Swapping s[i], s[len-1-i]
         let temp = s[i];
         s[i] = s[len-1-i];
         s[len-1-i] = temp;
